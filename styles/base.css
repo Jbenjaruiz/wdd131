@@ -62,22 +62,27 @@ a {
     --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* styles/small.css */
+
 /* --- Header --- */
 header {
     background-color: var(--color-primary-dark);
-    color: var(--color-text-light);
-    padding: calc(var(--spacing-unit) * 2);
-    display: flex;
-    align-items: center;
-    gap: calc(var(--spacing-unit) * 1.5);
 }
 
 header h1 {
     font-family: var(--font-primary);
-    font-size: 1.5rem;
-    font-weight: 700;
-    flex-grow: 1; 
-    margin: 0; 
+    font-size: 1.1rem; 
+    font-weight: 700; /* Letras blancas en negrita */
+    color: var(--color-text-light);
+    text-align: center;
+    margin: 0;
+    padding: calc(var(--spacing-unit) * 2);
+    position: relative;
+}
+
+#course-title {
+    font-weight: 400; /* El título del curso no estará en negrita */
+    color: var(--color-text-light); /* Aseguramos que sea blanco */
 }
 
 header #menu-button {
@@ -86,33 +91,34 @@ header #menu-button {
     color: var(--color-text-light);
     font-size: 2rem;
     cursor: pointer;
-    padding: var(--spacing-unit);
-    margin-left: auto; 
+    position: absolute; 
+    top: calc(var(--spacing-unit) * 1);
+    right: var(--spacing-unit);
 }
 
-/* --- Navigation --- */
-nav {
+/* --- Navigation (now inside header) --- */
+header nav {
     background-color: var(--color-secondary-dark);
 }
 
-nav ul#nav-links {
+header nav ul#nav-links {
     display: none; 
     flex-direction: column;
 }
 
-nav ul#nav-links.open {
+header nav ul#nav-links.open {
     display: flex;
 }
 
-nav ul#nav-links li {
+header nav ul#nav-links li {
     width: 100%;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-nav ul#nav-links li:last-child {
+header nav ul#nav-links li:last-child {
     border-bottom: none;
 }
 
-nav ul#nav-links li a {
+header nav ul#nav-links li a {
     display: block;
     padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
     color: var(--color-text-light);
@@ -122,10 +128,10 @@ nav ul#nav-links li a {
     transition: background-color 0.3s ease;
 }
 
-nav ul#nav-links li a:hover {
+header nav ul#nav-links li a:hover {
     background-color: var(--color-primary-medium);
 }
-nav ul#nav-links li a.active {
+header nav ul#nav-links li a.active {
     background-color: var(--color-primary-dark);
     color: var(--color-accent);
     font-weight: bold;

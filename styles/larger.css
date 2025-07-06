@@ -2,40 +2,53 @@
 
 @media (min-width: 768px) { /* Breakpoint for tablets and larger */
 
-    /* --- Header --- */
+/* styles/larger.css */
+
+@media (min-width: 768px) { 
+
+    /* --- Header & Navigation (Unified) --- */
     header {
-        padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 4);
-        justify-content: center; 
-        position: relative; 
+      /* El header ahora solo es un contenedor, los fondos se aplican a los hijos */
     }
     
     header h1 {
-        font-size: 2rem;
-        text-align: left; 
-        flex-grow: 0; 
+        background-color: var(--color-primary-dark);
+        color: var(--color-text-light);
+        padding: calc(var(--spacing-unit) * 2);
+        font-size: 1.5rem;
+        font-weight: 700; /* Negrita */
+        text-align: center; 
     }
     
     header #menu-button {
         display: none; 
     }
 
-    /* --- Navigation --- */
-    nav ul#nav-links {
+    header nav {
+        background-color: var(--color-secondary-dark);
+    }
+
+    header nav ul#nav-links {
         display: flex !important; 
         flex-direction: row;
         justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
-    nav ul#nav-links li {
+    header nav ul#nav-links li {
         width: auto;
         border-bottom: none;
     }
-    nav ul#nav-links li:last-child {
+    header nav ul#nav-links li:last-child {
         border-right: none;
     }
-    nav ul#nav-links li a {
+    header nav ul#nav-links li a {
         padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
     }
-
+    
+    /* ... resto de tus estilos ... */
+}
     /* --- Main Content --- */
     main {
         padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
