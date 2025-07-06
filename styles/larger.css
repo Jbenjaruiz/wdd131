@@ -1,27 +1,25 @@
 /* styles/larger.css */
 
-@media (min-width: 768px) { /* Breakpoint para tablets y más grandes */
+@media (min-width: 768px) { /* Breakpoint for tablets and larger */
 
-    /* --- Encabezado --- */
+    /* --- Header --- */
     header {
         padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 4);
-        justify-content: center; /* Centra el contenido del header (foto y nombre) */
+        justify-content: center; 
         position: relative; 
     }
-    header img#profile-pic {
-        width: 60px; 
-        height: 78px; 
-    }
+    
     header h1 {
         font-size: 2rem;
         text-align: left; 
         flex-grow: 0; 
     }
+    
     header #menu-button {
         display: none; 
     }
 
-    /* --- Navegación --- */
+    /* --- Navigation --- */
     nav ul#nav-links {
         display: flex !important; 
         flex-direction: row;
@@ -38,55 +36,70 @@
         padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
     }
 
-    /* --- Contenido Principal (main) --- */
+    /* --- Main Content --- */
     main {
         padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
         max-width: 1200px; 
         margin: 0 auto; 
     }
     
-    main h1 { /* Título "Home" */
-        font-size: 2.5rem;
-        margin-bottom: calc(var(--spacing-unit) * 3);
-    }
-
     .main-columns {
         display: grid;
         grid-template-columns: 2fr 1fr; 
         gap: calc(var(--spacing-unit) * 3);
-        margin-bottom: calc(var(--spacing-unit) * 3);
+        align-items: stretch; /* MODIFIED: This makes the cards equal height */
+    }
+
+    /* --- Styles for About Me Card --- */
+    #about-me-card .card-content {
+        display: flex; /* Added for more control over alignment */
+        flex-direction: column;
+        height: 100%; /* Ensure content area fills the card */
+        padding: calc(var(--spacing-unit) * 2);
+    }
+
+    #about-me-card .about-me-top {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: calc(var(--spacing-unit) * 2);
+    }
+
+    #about-me-card .about-me-text {
+        flex: 1; 
+    }
+
+    #about-me-card .profile-pic {
+        width: 140px; 
+        height: auto; 
+        margin: 0; 
+    }
+
+    #about-me-card h3 {
+        text-align: left; 
     }
     
-    #location-info img {
-        max-height: none; 
+    #about-me-card .location-info {
+        flex-grow: 1; /* Allow this section to grow to push footer content down */
+    }
+    
+    #about-me-card .location-details {
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
+        gap: calc(var(--spacing-unit) * 2);
+    }
+    
+    #about-me-card .flag-figure {
+        text-align: left; /* Align caption to the left */
+        margin: 0;
     }
 
-    /* Sección del Certificado */
-    #certificate-section #course-filters {
-        justify-content: center; /* << MODIFICADO: Centrar los botones */
-        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2); 
-    }
-    #certificate-section #course-filters button {
-        flex-grow: 0; 
-        padding: var(--spacing-unit) calc(var(--spacing-unit) * 3); /* << MODIFICADO: Padding horizontal aumentado para hacerlos más anchos */
-        min-width: 100px; /* << AÑADIDO: Un ancho mínimo para asegurar que no sean demasiado pequeños */
+    #about-me-card .flag-img {
+        width: 100px; 
     }
 
-    #course-cards-container {
-        grid-template-columns: repeat(3, 1fr); 
-        gap: calc(var(--spacing-unit) * 2.5);
-    }
-    .course-card {
-        padding: calc(var(--spacing-unit) * 2); 
-        font-size: 1rem; 
-    }
-
-    #certificate-section #total-credits-container {
-        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
-        font-size: 1.1rem; 
-    }
-
-    /* --- Pie de Página --- */
+    /* --- Footer --- */
     footer {
         padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
         display: flex;
