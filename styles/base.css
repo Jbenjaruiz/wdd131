@@ -1,26 +1,27 @@
-/* styles/small.css */
-
-/* --- Basic Resets --- */
-*,
-*::before,
-*::after {
+/* --- Basic Resets & Variables --- */
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 html {
-    font-size: 16px; /* Base for rem */
+    font-size: 16px;
 }
 
+/* En styles/base.css */
+
 body {
-    font-family: var(--font-secondary, 'Open Sans', sans-serif);
+    font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
-    color: var(--text-color, #333);
-    background-color: var(--background-page, #f4f4f4); 
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    display: flex; /* <-- AÑADIR */
+    flex-direction: column; /* <-- AÑADIR */
+    min-height: 100vh; /* <-- AÑADIR (altura mínima del 100% de la pantalla) */
+}
+
+main {
+    padding: calc(var(--spacing-unit) * 2);
+    flex-grow: 1; /* <-- AÑADIR (hace que el contenido principal crezca y empuje el footer) */
 }
 
 img {
@@ -38,51 +39,34 @@ a {
     color: inherit;
 }
 
-/* --- CSS Variables --- */
 :root {
-    --color-primary-dark: #003C43;   
-    --color-primary-medium: #135D66; 
-    --color-secondary-dark: #333333; 
-    --color-accent: #FFD700;         
-    --color-light-bg: #ffffff;       
-    --color-page-bg: #E3FEF7;        
+    --color-primary-dark: #003C43;
+    --color-primary-medium: #135D66;
+    --color-secondary-dark: #333333;
+    --color-light-bg: #ffffff;
     --color-text-light: #ffffff;
     --color-text-dark: #333333;
     --color-text-subtle: #555555;
-    --color-link-blue: #0000EE; /* NEW: Variable for link color */
-
-
+    --color-link-blue: #0000EE;
     --font-primary: 'Roboto', sans-serif;
-    --font-secondary: 'Open Sans', sans-serif;
-
     --spacing-unit: 8px;
-    --border-radius-small: 4px;
     --border-radius-medium: 8px;
-
     --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* styles/small.css */
-
-/* --- Header --- */
+/* --- Header & Navigation --- */
 header {
     background-color: var(--color-primary-dark);
-}
-
-header h1 {
-    font-family: var(--font-primary);
-    font-size: 1.1rem; 
-    font-weight: 700; /* Letras blancas en negrita */
-    color: var(--color-text-light);
     text-align: center;
-    margin: 0;
-    padding: calc(var(--spacing-unit) * 2);
     position: relative;
+    padding: var(--spacing-unit);
 }
 
 #course-title {
-    font-weight: 400; /* El título del curso no estará en negrita */
-    color: var(--color-text-light); /* Aseguramos que sea blanco */
+    font-family: var(--font-primary);
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+    padding: var(--spacing-unit);
 }
 
 header #menu-button {
@@ -91,18 +75,18 @@ header #menu-button {
     color: var(--color-text-light);
     font-size: 2rem;
     cursor: pointer;
-    position: absolute; 
-    top: calc(var(--spacing-unit) * 1);
+    position: absolute;
+    top: 50%;
     right: var(--spacing-unit);
+    transform: translateY(-50%);
 }
 
-/* --- Navigation (now inside header) --- */
 header nav {
     background-color: var(--color-secondary-dark);
 }
 
 header nav ul#nav-links {
-    display: none; 
+    display: none;
     flex-direction: column;
 }
 
@@ -110,37 +94,31 @@ header nav ul#nav-links.open {
     display: flex;
 }
 
-header nav ul#nav-links li {
-    width: 100%;
+header nav ul li {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-header nav ul#nav-links li:last-child {
+
+header nav ul li:last-child {
     border-bottom: none;
 }
 
-header nav ul#nav-links li a {
+header nav ul li a {
     display: block;
-    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+    padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
     color: var(--color-text-light);
-    text-align: center;
-    font-family: var(--font-secondary);
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-header nav ul#nav-links li a:hover {
-    background-color: var(--color-primary-medium);
-}
-header nav ul#nav-links li a.active {
-    background-color: var(--color-primary-dark);
-    color: var(--color-accent);
-    font-weight: bold;
 }
 
 /* --- Main Content --- */
 main {
-    padding: calc(var(--spacing-unit) * 2);
-    flex-grow: 1; 
+    padding: var(--spacing-unit) * 2;
+}
+
+main > h1 {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: var(--spacing-unit) * 2;
+    color: var(--color-text-dark);
 }
 
 .content-card {
@@ -148,8 +126,8 @@ main {
     margin-bottom: calc(var(--spacing-unit) * 3);
     border-radius: var(--border-radius-medium);
     box-shadow: var(--shadow-soft);
-    border: 1px solid var(--color-primary-dark);
-    overflow: hidden; 
+    border: 1px solid #ccc;
+    overflow: hidden;
 }
 
 .content-card h2 {
@@ -158,92 +136,60 @@ main {
     font-family: var(--font-primary);
     font-size: 1.25rem;
     padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
-    margin: 0; 
 }
 
-/* Specifics for Web Dev Resources Card */
+#about-me-card .card-content,
 #course-work ul {
     padding: calc(var(--spacing-unit) * 2);
 }
+
 #course-work ul li {
     margin-bottom: var(--spacing-unit);
-    padding-left: var(--spacing-unit);
-    list-style-type: disc; 
-    margin-left: calc(var(--spacing-unit) * 2);
+    list-style-type: disc;
+    margin-left: calc(var(--spacing-unit) * 3);
 }
-/* MODIFIED: Style for the links */
+
 #course-work ul li a {
     color: var(--color-link-blue);
     text-decoration: underline;
 }
 
-/* --- Styles for About Me Card --- */
-#about-me-card .card-content {
-    padding: calc(var(--spacing-unit) * 2);
-}
-
 #about-me-card .profile-pic {
     width: 120px;
-    height: auto;
-    border-radius: var(--border-radius-small);
-    border: 2px solid var(--color-primary-medium);
     margin: var(--spacing-unit) auto;
 }
 
 #about-me-card h3 {
-    font-family: var(--font-primary);
-    color: var(--color-secondary-dark);
-    margin-top: calc(var(--spacing-unit) * 2);
-    margin-bottom: var(--spacing-unit);
-    text-align: center; 
+    text-align: center;
+    margin-top: var(--spacing-unit);
 }
 
 #about-me-card .location-info {
-    margin-top: var(--spacing-unit);
-    padding-top: calc(var(--spacing-unit) * 2);
     border-top: 1px solid #ccc;
+    padding-top: var(--spacing-unit);
+    margin-top: var(--spacing-unit);
 }
 
 #about-me-card .flag-figure {
-    text-align: center; /* Center flag and caption */
+    text-align: center;
 }
 
-#about-me-card .flag-img {
-    width: 80px; 
-    margin: 0 auto;
-}
-
-/* NEW: Style for the flag caption */
 #about-me-card figcaption {
     font-style: italic;
     font-size: 0.85rem;
     color: var(--color-text-subtle);
-    margin-top: calc(var(--spacing-unit) * 0.5);
+    margin-top: var(--spacing-unit);
 }
 
 /* --- Footer --- */
 footer {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-secondary-dark);
     color: var(--color-text-light);
-    padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 2);
     text-align: center;
+    padding: calc(var(--spacing-unit) * 2);
     font-size: 0.9rem;
 }
 
-footer p {
-    margin-bottom: var(--spacing-unit);
-}
 footer p:last-child {
-    margin-bottom: 0;
-}
-
-.footer-location-large {
-    display: none; 
-}
-.footer-location-small,
-.footer-flag-small {
-    display: block; 
-}
-.footer-flag-small {
-    font-size: 1.5rem; 
+    margin-top: var(--spacing-unit);
 }
