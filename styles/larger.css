@@ -1,73 +1,67 @@
-/* styles/larger.css */
+@media (min-width: 768px) {
 
-@media (min-width: 768px) { /* Breakpoint for tablets and larger */
+    @media (min-width: 768px) {
 
-/* styles/larger.css */
+        header h1 {
+            background-color: var(--color-primary-dark);
+            color: var(--color-text-light);
+            padding: calc(var(--spacing-unit) * 2);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
 
-@media (min-width: 768px) { 
+        header #menu-button {
+            display: none;
+        }
 
-    /* --- Header & Navigation (Unified) --- */
-    header {
-      /* El header ahora solo es un contenedor, los fondos se aplican a los hijos */
-    }
-    
-    header h1 {
-        background-color: var(--color-primary-dark);
-        color: var(--color-text-light);
-        padding: calc(var(--spacing-unit) * 2);
-        font-size: 1.5rem;
-        font-weight: 700; /* Negrita */
-        text-align: center; 
-    }
-    
-    header #menu-button {
-        display: none; 
+        header nav {
+            background-color: var(--color-secondary-dark);
+        }
+
+        header nav ul#nav-links {
+            display: flex !important;
+            flex-direction: row;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        header nav ul#nav-links li {
+            width: auto;
+            border-bottom: none;
+        }
+
+        header nav ul#nav-links li:last-child {
+            border-right: none;
+        }
+
+        header nav ul#nav-links li a {
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+        }
+
+
     }
 
-    header nav {
-        background-color: var(--color-secondary-dark);
-    }
-
-    header nav ul#nav-links {
-        display: flex !important; 
-        flex-direction: row;
-        justify-content: center;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-    header nav ul#nav-links li {
-        width: auto;
-        border-bottom: none;
-    }
-    header nav ul#nav-links li:last-child {
-        border-right: none;
-    }
-    header nav ul#nav-links li a {
-        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
-    }
-    
-    /* ... resto de tus estilos ... */
-}
     /* --- Main Content --- */
     main {
         padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
-        max-width: 1200px; 
-        margin: 0 auto; 
-    }
-    
-    .main-columns {
-        display: grid;
-        grid-template-columns: 2fr 1fr; 
-        gap: calc(var(--spacing-unit) * 3);
-        align-items: stretch; /* MODIFIED: This makes the cards equal height */
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-    /* --- Styles for About Me Card --- */
+    .main-columns {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: calc(var(--spacing-unit) * 3);
+        align-items: stretch;
+    }
+
     #about-me-card .card-content {
-        display: flex; /* Added for more control over alignment */
+        display: flex;
         flex-direction: column;
-        height: 100%; /* Ensure content area fills the card */
+        height: 100%;
         padding: calc(var(--spacing-unit) * 2);
     }
 
@@ -79,55 +73,57 @@
     }
 
     #about-me-card .about-me-text {
-        flex: 1; 
+        flex: 1;
     }
 
     #about-me-card .profile-pic {
-        width: 140px; 
-        height: auto; 
-        margin: 0; 
+        width: 140px;
+        height: auto;
+        margin: 0;
     }
 
     #about-me-card h3 {
-        text-align: left; 
+        text-align: left;
     }
-    
+
     #about-me-card .location-info {
-        flex-grow: 1; /* Allow this section to grow to push footer content down */
+        flex-grow: 1;
     }
-    
+
     #about-me-card .location-details {
         display: flex;
         flex-direction: row;
-        align-items: center; 
+        align-items: center;
         gap: calc(var(--spacing-unit) * 2);
     }
-    
+
     #about-me-card .flag-figure {
-        text-align: left; /* Align caption to the left */
+        text-align: left;
         margin: 0;
     }
 
     #about-me-card .flag-img {
-        width: 100px; 
+        width: 100px;
     }
 
-    /* --- Footer --- */
+  
     footer {
         padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
         display: flex;
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
     }
+
     footer p {
-        margin-bottom: calc(var(--spacing-unit) * 0.5); 
+        margin-bottom: calc(var(--spacing-unit) * 0.5);
     }
 
     .footer-location-large {
-        display: inline; 
+        display: inline;
     }
+
     .footer-location-small,
     .footer-flag-small {
-        display: none; 
+        display: none;
     }
 }
