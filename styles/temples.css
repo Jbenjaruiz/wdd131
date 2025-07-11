@@ -110,6 +110,11 @@ header nav ul li a {
     display: block;
     padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
     color: var(--color-text-light);
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    background-color: var(--color-primary-medium);
 }
 
 /* --- Responsive Navigation --- */
@@ -136,15 +141,11 @@ header nav ul li a {
 
 /* --- Main Content --- */
 main {
-    padding: var(--spacing-unit) * 2;
+    padding: calc(var(--spacing-unit) * 2);
 }
 
 main > h1 {
-    font-family: var(--font-primary);
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: var(--spacing-unit) * 2;
-    color: var(--color-text-dark);
+    margin-bottom: calc(var(--spacing-unit) * 2); 
 }
 
 /* Estilos para la galería de templos */
