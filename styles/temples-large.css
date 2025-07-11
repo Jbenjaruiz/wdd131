@@ -1,7 +1,15 @@
 @media (min-width: 768px) {
+    /* --- Header y Navegación de Escritorio --- */
+    header {
+        display: flex;
+        justify-content: space-between; /* <-- ESTA ES LA CLAVE: h1 a la izquierda, nav a la derecha */
+        align-items: center;
+    }
 
-    /* --- Header & Navigation --- */
-    header #course-title {
+    header h1 {
+        /* Se quita el posicionamiento absoluto para que esté en el flujo */
+        position: static;
+        transform: none;
         font-size: 1.5rem;
     }
 
@@ -9,51 +17,24 @@
         display: none;
     }
 
-    header nav ul#nav-links {
-        flex-direction: row;
-        justify-content: center;
+    header nav {
+        display: block;
+        position: static;
+        background-color: transparent;
+        width: auto;
     }
-
-    header nav ul li {
-        border: none;
-    }
-
-    header nav ul li a {
-        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
-    }
-
-    /* --- Main Content Layout --- */
-    main {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: calc(var(--spacing-unit) * 4);
-    }
-
-    main>h1 {
-        font-size: 2.5rem;
-        margin-bottom: calc(var(--spacing-unit) * 4);
-    }
-
-    @media (min-width: 768px) {
-        .temple-grid {
-            /* Cambiamos a 2 columnas para tablets y pantallas pequeñas */
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (min-width: 1200px) {
-        .temple-grid {
-            /* Cambiamos a 3 columnas para pantallas anchas */
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-
-    /* --- Footer --- */
-    footer {
-        padding: calc(var(--spacing-unit) * 3);
+    
+    header nav ul {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        flex-direction: row;
+    }
+
+    header nav a {
+        border-bottom: none;
+    }
+
+    /* --- Galería de Escritorio --- */
+    .temple-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
     }
 }
