@@ -1,0 +1,193 @@
+/* --- Basic Resets & Variables --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* En styles/base.css */
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    display: flex; /* <-- AÑADIR */
+    flex-direction: column; /* <-- AÑADIR */
+    min-height: 100vh; /* <-- AÑADIR (altura mínima del 100% de la pantalla) */
+}
+
+main {
+    padding: calc(var(--spacing-unit) * 2);
+    flex-grow: 1; /* <-- AÑADIR (hace que el contenido principal crezca y empuje el footer) */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+:root {
+    --color-primary-dark: #003C43;
+    --color-primary-medium: #135D66;
+    --color-secondary-dark: #333333;
+    --color-light-bg: #ffffff;
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --color-text-subtle: #555555;
+    --color-link-blue: #0000EE;
+    --font-primary: 'Roboto', sans-serif;
+    --spacing-unit: 8px;
+    --border-radius-medium: 8px;
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Header & Navigation --- */
+/* ...existing code... */
+
+/* --- Header & Navigation --- */
+header {
+    background-color: var(--color-primary-dark);
+    text-align: center;
+    position: relative;
+    padding: var(--spacing-unit);
+}
+
+#course-title {
+    font-family: var(--font-primary);
+    color: var(--color-text-light);
+    font-size: 1.2rem;
+    padding: var(--spacing-unit);
+}
+
+header #menu-button {
+    background: none;
+    border: none;
+    color: var(--color-text-light);
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-unit);
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+header nav {
+    background-color: var(--color-secondary-dark);
+}
+
+header nav ul#nav-links {
+    display: none;
+    flex-direction: column;
+}
+
+header nav ul#nav-links.open {
+    display: flex;
+}
+
+header nav ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header nav ul li:last-child {
+    border-bottom: none;
+}
+
+header nav ul li a {
+    display: block;
+    padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
+    color: var(--color-text-light);
+}
+
+/* --- Responsive Navigation --- */
+@media (min-width: 700px) {
+    header #menu-button {
+        display: none;
+    }
+    header nav ul#nav-links {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: center;
+    }
+    header nav ul#nav-links.open {
+        display: flex;
+    }
+    header nav ul li {
+        border-bottom: none;
+        border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    header nav ul li:last-child {
+        border-right: none;
+    }
+}
+
+/* --- Main Content --- */
+main {
+    padding: var(--spacing-unit) * 2;
+}
+
+main > h1 {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: var(--spacing-unit) * 2;
+    color: var(--color-text-dark);
+}
+
+/* Estilos para la galería de templos */
+.temple-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna en móvil */
+    gap: 1.5rem; /* Espacio entre las tarjetas */
+    padding: 1rem;
+}
+
+.temple-grid figure {
+    margin: 0;
+    background-color: #ffffff;
+    box-shadow: var(--shadow-soft);
+    border-radius: var(--border-radius-medium);
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados */
+    display: flex;
+    flex-direction: column;
+}
+
+.temple-grid img {
+    width: 100%;
+    height: 200px; /* Le damos una altura fija a las imágenes */
+    object-fit: cover; /* Evita que la imagen se distorsione */
+}
+
+.temple-grid figcaption {
+    text-align: center;
+    padding: 1rem;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--color-text-dark);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 2);
+    font-size: 0.9rem;
+}
+
+footer p:last-child {
+    margin-top: var(--spacing-unit);
+}
