@@ -20,31 +20,41 @@
 
 <body>
     <header>
-        <span>Riobamba, Ecuador</span>
+        <h1>Riobamba, Ecuador</h1>
     </header>
 
     <main>
         <div class="content-wrapper">
-            <img src="https://placehold.co/1200x500/cccccc/333333?text=Riobamba+Landscape" alt="Landscape of Riobamba"
-                loading="lazy">
+            <picture>
+                <source media="(min-width: 768px)" srcset="images/hero-large.webp">
+
+                <img src="images/hero-small.webp" alt="Landscape of Riobamba" loading="lazy" width="500" height="750">
+            </picture>
 
             <div class="data-box top-left">
                 <h3>Data</h3>
                 <ul>
-                    <li><strong>Area:</strong> 5,637 km²</li>
-                    <li><strong>Population:</strong> 458,581</li>
-                    <li><strong>Capital:</strong> Riobamba</li>
+                    <li><strong>Area:</strong> 6,499 sq km (Province)</li>
+                    <li><strong>Population:</strong> ~471,000 (Province)</li>
+                    <li><strong>Capital of:</strong> Chimborazo Province</li>
                     <li><strong>Language:</strong> Spanish</li>
-                    <li><strong>Currency:</strong> U.S. Dollar</li>
+                    <li><strong>Currency:</strong> U.S. Dollar (USD)</li>
+                    <li><strong>Time Zone:</strong> UTC-5</li>
+                    <li><strong>Calling Code:</strong> +593</li>
+                    <li><strong>Internet TLD:</strong> .ec</li>
                 </ul>
             </div>
 
             <div class="data-box bottom-right">
-                <h3>Weather</h3>
+                <h3>
+                    <span>Weather</span>
+                    <img src="images/weather-icon.svg" alt="Weather icon" class="weather-icon">
+                </h3>
                 <ul>
-                    <li><strong>Temperature:</strong> 13°C</li>
-                    <li><strong>Condition:</strong> Partly Cloudy</li>
-                    <li><strong>Wind:</strong> 10 km/h</li>
+                    <li><strong>Temperature:</strong> 14°C</li>
+                    <li><strong>Conditions:</strong> Partly Cloudy</li>
+                    <li><strong>Wind:</strong> 8 km/h</li>
+                    <li><strong>Wind Chill:</strong> 9.8 C</li>
                 </ul>
             </div>
         </div>

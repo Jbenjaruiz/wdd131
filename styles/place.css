@@ -51,8 +51,11 @@ header {
 }
 
 .data-box h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
     font-family: var(--font-primary);
-    border-bottom: 2px solid var(--header-bg-color);
+    border-bottom: 1px solid #ddd;
     padding-bottom: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -64,6 +67,11 @@ header {
 
 .data-box li {
     padding: 0.25rem 0;
+}
+
+.data-box h3 .weather-icon {
+    width: 100px;
+    height: 40px;
 }
 
 /* --- Additional Info Section --- */
