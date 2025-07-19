@@ -1,0 +1,94 @@
+:root {
+    --header-bg-color: #34495E;
+    --footer-bg-color: #34495E;
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-secondary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* --- Header --- */
+header {
+    background-color: var(--header-bg-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-family: var(--font-primary);
+}
+
+/* --- Hero Section --- */
+
+.content-wrapper {
+    /* Este contenedor simplemente agrupa los elementos */
+}
+
+.content-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+.data-box {
+    background-color: #f0f0f0; /* Un fondo sólido para mejor lectura */
+    color: #333;
+    padding: 1rem;
+    margin: 1rem; /* Margen para separar los cuadros */
+    border: 1px solid #ddd;
+}
+
+.data-box h3 {
+    font-family: var(--font-primary);
+    border-bottom: 2px solid var(--header-bg-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.data-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.data-box li {
+    padding: 0.25rem 0;
+}
+
+/* --- Additional Info Section --- */
+.info-section {
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.info-card {
+    background-color: #e9e9e9;
+    padding: 2rem;
+    border: 1px solid #ddd;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--footer-bg-color);
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}

@@ -1,40 +1,36 @@
 @media (min-width: 768px) {
-    /* --- Header y Navegación de Escritorio --- */
     header {
-        display: flex;
-        justify-content: space-between; /* <-- ESTA ES LA CLAVE: h1 a la izquierda, nav a la derecha */
-        align-items: center;
+        font-size: 2rem;
     }
 
-    header h1 {
-        /* Se quita el posicionamiento absoluto para que esté en el flujo */
-        position: static;
-        transform: none;
-        font-size: 1.5rem;
+
+    /* Reemplaza las reglas de Hero y Data Box con estas */
+
+    .content-wrapper {
+        position: relative;
+        /* Contenedor de referencia para los cuadros */
     }
 
-    header #menu-button {
-        display: none;
+    .data-box {
+        position: absolute;
+        /* Posicionamiento absoluto sobre el contenedor */
+        width: 250px;
+        margin: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        /* Fondo semitransparente en escritorio */
+        color: white;
+        border: 1px solid white;
     }
 
-    header nav {
-        display: block;
-        position: static;
-        background-color: transparent;
-        width: auto;
-    }
-    
-    header nav ul {
-        display: flex;
-        flex-direction: row;
+    /* Selector para el primer data-box (Data) */
+    .content-wrapper .data-box:nth-of-type(1) {
+        top: 2rem;
+        left: 2rem;
     }
 
-    header nav a {
-        border-bottom: none;
-    }
-
-    /* --- Galería de Escritorio --- */
-    .temple-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columnas en escritorio */
+    /* Selector para el segundo data-box (Weather) */
+    .content-wrapper .data-box:nth-of-type(2) {
+        bottom: 2rem;
+        right: 2rem;
     }
 }
